@@ -10,7 +10,6 @@ import numpy as np
 import math
 from mpl_toolkits.mplot3d import Axes3D
 
-plt.clf()
 class branch():
     def __init__(self, x, x2, y, y2, z, z2):
         self.x = x
@@ -38,29 +37,29 @@ class branch():
         ax.plot([self.x,self.x2],[self.y,self.y2],[self.z, self.z2], linewidth=np.sqrt(self.width), color='black')
 
     def plotLeaf(self):
-        leafX = np.random.random(4)*4+self.x2
-        leafY = np.random.random(4)*4+self.y2
-        leafZ = np.random.random(4)*4+self.z2
-        ax.scatter(leafX, leafY, leafZ, color='green', s=10)
+        leafX = np.random.random(1)*4+self.x2
+        leafY = np.random.random(1)*4+self.y2
+        leafZ = np.random.random(1)*4+self.z2
+        ax.scatter(leafX, leafY, leafZ, color='red', s=10)
 
-x = np.random.random(200)*60
-y = np.random.random(200)*60
-z = np.random.random(200)*60
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+x = np.random.random(300)*60
+y = np.random.random(300)*60
+z = np.random.random(300)*60
+#fig = plt.figure()
+ax = plt.figure().add_subplot(111, projection='3d')
 #ax.scatter(x,y,z)
 
-branches = [branch(30,30, 30,30, -30,0)]
+branches = [branch(30,30, 30,30, -10,0)]
 
 branches[0].plot()
 #plt.scatter(x, y)
 
-maxdist = 20
-mindist = 3
+maxdist = 12
+mindist = 1
 
 
 
-for h in range(50):
+for h in range(40):
 
     for i in range(len(x)-1, 0, -1):
         closest_branch = 0
@@ -84,7 +83,7 @@ for h in range(50):
     
     for i in range(len(branches)):
         if branches[i].grow_count > 0:
-            branches[i].grow_count /= 2
+            branches[i].grow_count /= 3
             newBranch = branch(branches[i].x2, branches[i].x2 + branches[i].grow_x/branches[i].grow_count, branches[i].y2, branches[i].y2 + branches[i].grow_y/branches[i].grow_count, branches[i].z2, branches[i].z2 + branches[i].grow_z/branches[i].grow_count )
             branches.append(newBranch)
             branches[i].child.append(newBranch)
