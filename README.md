@@ -1,4 +1,5 @@
 # Creating-Trees-with-space-colonization
+![](growingtree.gif)
 ![](tree4.gif)
 ![](tree.gif)
 ![](tree2.gif)
