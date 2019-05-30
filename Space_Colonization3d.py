@@ -40,26 +40,33 @@ class branch():
         leafX = np.random.random(1)*4+self.x2
         leafY = np.random.random(1)*4+self.y2
         leafZ = np.random.random(1)*4+self.z2
-        ax.scatter(leafX, leafY, leafZ, color='red', s=10)
-
+        ax.scatter(leafX, leafY, leafZ, color='green', s=10)
+#x=[]
+#y=[]
+#z=[]
 x = np.random.random(300)*60
 y = np.random.random(300)*60
 z = np.random.random(300)*60
+#for i in range(1000):
+#    x.append(math.sqrt(1000-i)*random.random()*(random.random()*2-1)+15)
+#    y.append(math.sqrt(1000-i)*random.random()*(random.random()*2-1)+15)
+#    z.append(i/30)
+
 #fig = plt.figure()
 ax = plt.figure().add_subplot(111, projection='3d')
 #ax.scatter(x,y,z)
 
-branches = [branch(30,30, 30,30, -10,0)]
+branches = [branch(15,15, 15,15, -10,0)]
 
 branches[0].plot()
 #plt.scatter(x, y)
 
-maxdist = 12
-mindist = 1
+maxdist = 30
+mindist = 2
 
 
 
-for h in range(40):
+for h in range(30):
 
     for i in range(len(x)-1, 0, -1):
         closest_branch = 0
@@ -91,15 +98,21 @@ for h in range(40):
             branches[i].grow_x = 0    
             branches[i].grow_y = 0 
             branches[i].grow_z = 0 
-           
-#plt.clf()
-#for i in range(len(branches)):  
-branches[0].updateWidth()   
+     
+    ax.cla()
+    branches[0].updateWidth()  
+    for i in range(len(branches)):    
+        branches[i].plot()
+    #ax.scatter(x,y,z)
+   # ax.axis('equal')
+    #plt.pause(0.001)
+
+#branches[0].updateWidth()   
         
 #plt.clf()
 for i in range(len(branches)):    
     branches[i].plot()
-    #plt.axis('equal')
+
 
 ax.axis('equal')
 #ax.scatter(x,y,z)
