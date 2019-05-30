@@ -1,6 +1,6 @@
 # Creating-Trees-with-space-colonization
-![](growingtree.gif)
 ![](tree4.gif)
+![](growingtree.gif)
 ![](tree.gif)
 ![](tree2.gif)
 Space Colonization is a algorithm described by Adam Runions, Brendan Lane, and Przemyslaw Prusinkiewicz.  Testing in python  
